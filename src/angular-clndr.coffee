@@ -17,8 +17,11 @@ TienClndrDirective = ->
       $element.append(clone)
 
       # watch events from tien-clndr-events attribute
-      $scope.$watch 'events', (val) ->
-        $scope.clndr.setEvents(angular.copy(val || []))
+      $scope.$watch(
+        'events'
+        (val) ->
+            $scope.clndr.setEvents(angular.copy(val || []))
+        true)
 
       # extend all CLNDR data to scope
       render = (data) ->
